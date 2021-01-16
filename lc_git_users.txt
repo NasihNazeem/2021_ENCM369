@@ -1,2 +1,2 @@
-Nasih, Mohamed Nazeem, nasih.mohamednazeem@ucalgary.ca, NasihNazeem, 2021_ENCM369
-ENCM369, Jason Long, jrlong@ucalgary.ca, UofCencm369, 2021_ENCM369
+firstname,lastname,email,git_username,repository_name
+Nasih,MohamedNazeem,nasih.mohamednazeem@ucalgary.ca,NasihNazeem,2021_ENCM369
