@@ -1,6 +1,6 @@
 firstname,lastname,email,git_username,repository_name
 Nasih,MohamedNazeem,nasih.mohamednazeem@ucalgary.ca,NasihNazeem,2021_ENCM369
 Omar,Elmalawany,omar.elmalawany@ucalgary.ca,oelmalawany,2021_ENCM369
-Nestor, Chacin, nachacin@ucalgary.ca, nachacin, 2021_ENCM369
+Nestor,Chacin,nachacin@ucalgary.ca,nachacin,2021_ENCM369
 Zaeem,Muhammad,zaeem.muhammad1@ucalgary.ca,M-zaeem,2021_ENCM369
 Ahmed,Anwar,ahmed.anwar1@ucalgary.ca,A-Anwar73,2021_ENCM369
