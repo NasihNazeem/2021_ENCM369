@@ -5,3 +5,4 @@ Nestor,Chacin,nachacin@ucalgary.ca,nachacin,2021_ENCM369
 Zaeem,Muhammad,zaeem.muhammad1@ucalgary.ca,M-zaeem,2021_ENCM369
 Ahmed,Anwar,ahmed.anwar1@ucalgary.ca,A-Anwar73,2021_ENCM369
 Hanyang,Sun,hanyang.sun1@ucalgary.ca,Jason-325,2021_ENCM369
+Frank,Bustamante,frank.bustamante895@gmail.com,FrankB7567,2021_ENCM369
