@@ -2586,8 +2586,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;encm369_pic18.c: 95:     PORTB = 0x00000000;
 [e = _PORTB -> -> 0 `i `uc ]
 "96
-[; ;encm369_pic18.c: 96:     TRISB = 0x00000020;
-[e = _TRISB -> -> 32 `i `uc ]
+[; ;encm369_pic18.c: 96:     TRISB = 0x00000030;
+[e = _TRISB -> -> 48 `i `uc ]
 "97
 [; ;encm369_pic18.c: 97:     ANSELB = 0x00000000;
 [e = _ANSELB -> -> 0 `i `uc ]

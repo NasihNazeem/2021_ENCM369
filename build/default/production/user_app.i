@@ -27315,33 +27315,23 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
+    while(1)
+    {
     static u32 u32Counter = 0x00000000;
+    int ButtonPress;
 
-    int BSet = 0;
-    int BOff = 1;
-    int BDiff = 0;
-
-
-    while(LATA < 0xBF)
+    if(PORTB == 0x10)
     {
-        if(PORTBbits.RB5 == 0)
-    {
-        BSet = 0;
-        BOff = 1;
+        ButtonPress = 0;
     }
-        if(PORTBbits.RB5 == 1)
+    if(PORTBbits.RB5 == 1 && ButtonPress == 0)
     {
-        BOff = 0;
-    }
-        BDiff = BOff - BSet;
-        if(PORTBbits.RB5 == 1 && BDiff == 0)
-    {
-        LATA += 1;
+        ButtonPress = 1;
         u32Counter++;
+        LATA = 0x80 + u32Counter;
+
+        if(LATA >= 0xBF)
+            LATA = 0x80;
     }
-    }
-    if(LATA >= 0xBF)
-    {
-        LATA = 0x80;
     }
 }

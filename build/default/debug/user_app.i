@@ -27315,23 +27315,23 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
+    while(1)
+    {
     static u32 u32Counter = 0x00000000;
+    int ButtonPress;
 
-
-    if(LATA < 0xBF)
+    if(PORTB == 0x10)
     {
-        if(PORTBbits.RB5 == 1)
-    {
-        u32Counter++;
-        u32Counter &= 0x3f;
-
-
-        LATA = 0x00000080 + u32Counter;
-
+        ButtonPress = 0;
     }
-    if(LATA >= 0xBF)
+    if(PORTBbits.RB5 == 1 && ButtonPress == 0)
     {
-        LATA = 0x80;
+        ButtonPress = 1;
+        u32Counter++;
+        LATA = 0x80 + u32Counter;
+
+        if(LATA >= 0xBF)
+            LATA = 0x80;
     }
     }
 }

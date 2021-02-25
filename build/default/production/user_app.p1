@@ -1,5 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"46163 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+"46157 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46157: extern volatile unsigned char PORTB __attribute__((address(0x4CF)));
+[v _PORTB `Vuc ~T0 @X0 0 e@1231 ]
+"46163
 [; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46163:     struct {
 [s S2169 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2169 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -2558,100 +2561,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _UserAppRun ]
 [f ]
 "97
-[; ;user_app.c: 97:     static u32 u32Counter = 0x00000000;
+[; ;user_app.c: 97:     while(1)
+[e :U 2275 ]
+"98
+[; ;user_app.c: 98:     {
+{
+"99
+[; ;user_app.c: 99:     static u32 u32Counter = 0x00000000;
 [v F15920 `ul ~T0 @X0 1 s u32Counter ]
 [i F15920
 -> -> -> 0 `i `l `ul
 ]
-"99
-[; ;user_app.c: 99:     int BSet = 0;
-[v _BSet `i ~T0 @X0 1 a ]
-[e = _BSet -> 0 `i ]
 "100
-[; ;user_app.c: 100:     int BOff = 1;
-[v _BOff `i ~T0 @X0 1 a ]
-[e = _BOff -> 1 `i ]
-"101
-[; ;user_app.c: 101:     int BDiff = 0;
-[v _BDiff `i ~T0 @X0 1 a ]
-[e = _BDiff -> 0 `i ]
-"104
-[; ;user_app.c: 104:     while(LATA < 0xBF)
-[e $U 2274  ]
-[e :U 2275 ]
-"105
-[; ;user_app.c: 105:     {
+[; ;user_app.c: 100:     int ButtonPress;
+[v _ButtonPress `i ~T0 @X0 1 a ]
+"102
+[; ;user_app.c: 102:     if(PORTB == 0x10)
+[e $ ! == -> _PORTB `i -> 16 `i 2277  ]
+"103
+[; ;user_app.c: 103:     {
 {
+"104
+[; ;user_app.c: 104:         ButtonPress = 0;
+[e = _ButtonPress -> 0 `i ]
+"105
+[; ;user_app.c: 105:     }
+}
+[e :U 2277 ]
 "106
-[; ;user_app.c: 106:         if(PORTBbits.RB5 == 0)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 2277  ]
+[; ;user_app.c: 106:     if(PORTBbits.RB5 == 1 && ButtonPress == 0)
+[e $ ! && == -> . . _PORTBbits 0 5 `i -> 1 `i == _ButtonPress -> 0 `i 2278  ]
 "107
 [; ;user_app.c: 107:     {
 {
 "108
-[; ;user_app.c: 108:         BSet = 0;
-[e = _BSet -> 0 `i ]
+[; ;user_app.c: 108:         ButtonPress = 1;
+[e = _ButtonPress -> 1 `i ]
 "109
-[; ;user_app.c: 109:         BOff = 1;
-[e = _BOff -> 1 `i ]
+[; ;user_app.c: 109:         u32Counter++;
+[e ++ F15920 -> -> -> 1 `i `l `ul ]
 "110
-[; ;user_app.c: 110:     }
-}
-[e :U 2277 ]
-"111
-[; ;user_app.c: 111:         if(PORTBbits.RB5 == 1)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2278  ]
+[; ;user_app.c: 110:         LATA = 0x80 + u32Counter;
+[e = _LATA -> + -> -> -> 128 `i `l `ul F15920 `uc ]
 "112
-[; ;user_app.c: 112:     {
-{
+[; ;user_app.c: 112:         if(LATA >= 0xBF)
+[e $ ! >= -> _LATA `i -> 191 `i 2279  ]
 "113
-[; ;user_app.c: 113:         BOff = 0;
-[e = _BOff -> 0 `i ]
+[; ;user_app.c: 113:             LATA = 0x80;
+[e = _LATA -> -> 128 `i `uc ]
+[e :U 2279 ]
 "114
 [; ;user_app.c: 114:     }
 }
 [e :U 2278 ]
 "115
-[; ;user_app.c: 115:         BDiff = BOff - BSet;
-[e = _BDiff - _BOff _BSet ]
-"116
-[; ;user_app.c: 116:         if(PORTBbits.RB5 == 1 && BDiff == 0)
-[e $ ! && == -> . . _PORTBbits 0 5 `i -> 1 `i == _BDiff -> 0 `i 2279  ]
-"117
-[; ;user_app.c: 117:     {
-{
-"118
-[; ;user_app.c: 118:         LATA += 1;
-[e =+ _LATA -> -> 1 `i `Vuc ]
-"119
-[; ;user_app.c: 119:         u32Counter++;
-[e ++ F15920 -> -> -> 1 `i `l `ul ]
-"120
-[; ;user_app.c: 120:     }
-}
-[e :U 2279 ]
-"121
-[; ;user_app.c: 121:     }
+[; ;user_app.c: 115:     }
 }
 [e :U 2274 ]
-"104
-[; ;user_app.c: 104:     while(LATA < 0xBF)
-[e $ < -> _LATA `i -> 191 `i 2275  ]
+[e $U 2275  ]
 [e :U 2276 ]
-"122
-[; ;user_app.c: 122:     if(LATA >= 0xBF)
-[e $ ! >= -> _LATA `i -> 191 `i 2280  ]
-"123
-[; ;user_app.c: 123:     {
-{
-"124
-[; ;user_app.c: 124:         LATA = 0x80;
-[e = _LATA -> -> 128 `i `uc ]
-"125
-[; ;user_app.c: 125:     }
-}
-[e :U 2280 ]
-"126
-[; ;user_app.c: 126: }
+"116
+[; ;user_app.c: 116: }
 [e :UE 2273 ]
 }

@@ -58,7 +58,7 @@
 [v _PORTA PORTA `VEuc  1 e 1 @1230 ]
 "46157
 [v _PORTB PORTB `VEuc  1 e 1 @1231 ]
-[s S62 . 1 `uc 1 RB0 1 0 :1:0 
+[s S63 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -68,10 +68,10 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "46174
-[u S71 . 1 `S62 1 . 1 0 ]
+[u S72 . 1 `S63 1 . 1 0 ]
 "46174
 "46174
-[v _PORTBbits PORTBbits `VES71  1 e 1 @1231 ]
+[v _PORTBbits PORTBbits `VES72  1 e 1 @1231 ]
 "14 C:\Users\Nasih Nazeem\Documents\GitHub\2021_ENCM369\main.c
 [v _G_u32SystemTime1ms G_u32SystemTime1ms `VEul  1 e 4 0 ]
 "15
@@ -89,14 +89,10 @@
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
 "100
-[v UserAppRun@BOff BOff `i  1 a 2 4 ]
-"101
-[v UserAppRun@BDiff BDiff `i  1 a 2 2 ]
+[v UserAppRun@ButtonPress ButtonPress `i  1 a 2 0 ]
 "99
-[v UserAppRun@BSet BSet `i  1 a 2 0 ]
-"97
 [v UserAppRun@u32Counter u32Counter `ul  1 s 4 u32Counter ]
-"126
+"116
 } 0
 "76
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]

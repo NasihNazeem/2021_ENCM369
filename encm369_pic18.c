@@ -93,7 +93,7 @@ void GpioSetup(void)
     ANSELA = 0x00000000;
     LATA = 0x00000080;
     PORTB = 0x00000000;
-    TRISB = 0x00000020;
+    TRISB = 0x00000030;
     ANSELB = 0x00000000;
     LATB = 0x00000000;
 } /* end GpioSetup() */
