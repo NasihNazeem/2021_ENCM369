@@ -96,22 +96,22 @@ void UserAppRun(void)
 {
     while(1)
     {
-    static u32 u32Counter = 0x00000000;
-    int ButtonPress;
+        static u32 u32Counter = 0x00000000;
+        int ButtonPress;
     
-    if(PORTB == 0x10)
-    {
-        ButtonPress = 0;
-    }
-    if(PORTBbits.RB5 == 1 && ButtonPress == 0)
-    {
-        ButtonPress = 1;
-        u32Counter++;
-        LATA = 0x80 + u32Counter;
+        if(PORTB == 0x10)
+        {
+            ButtonPress = 0;
+        }
+        if(PORTBbits.RB5 == 1 && ButtonPress == 0)
+        {
+            ButtonPress = 1;
+            u32Counter++;
+            LATA = 0x80 + u32Counter;
     
-        if(LATA >= 0xBF)
-            LATA = 0x80;
-    }
+            if(LATA >= 0xBF)
+                LATA = 0x80;
+        }
     }
 } /* end UserAppRun */
 
