@@ -1,4 +1,4 @@
-# 1 "encm369_pic18.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "encm369_pic18.c" 2
-# 24 "encm369_pic18.c"
+# 1 "main.c" 2
+
+
+
+
+
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27290,38 +27294,49 @@ void SystemSleep(void);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 106 "./configuration.h" 2
-# 24 "encm369_pic18.c" 2
-# 37 "encm369_pic18.c"
-extern volatile u32 G_u32SystemTime1ms;
-extern volatile u32 G_u32SystemTime1s;
-extern volatile u32 G_u32SystemFlags;
-# 70 "encm369_pic18.c"
-void ClockSetup(void)
-{
+# 6 "main.c" 2
 
 
-}
-# 89 "encm369_pic18.c"
-void GpioSetup(void)
-{
-    PORTA = 0x00000000;
-    TRISA = 0x00000000;
-    ANSELA = 0x00000000;
-    LATA = 0x00000080;
-    PORTB = 0x00000000;
-    TRISB = 0x00000020;
-    ANSELB = 0x00000000;
-    LATB = 0x00000000;
-}
-# 114 "encm369_pic18.c"
-void SysTickSetup(void)
-{
-  G_u32SystemTime1ms = 0;
-  G_u32SystemTime1s = 0;
 
-}
-# 136 "encm369_pic18.c"
-void SystemSleep(void)
+
+
+
+
+
+volatile u32 G_u32SystemTime1ms = 0;
+volatile u32 G_u32SystemTime1s = 0;
+volatile u32 G_u32SystemFlags = 0;
+# 35 "main.c"
+void main(void)
 {
+  G_u32SystemFlags |= (u32)0x80000000;
+
+
+  ClockSetup();
+  SysTickSetup();
+  GpioSetup();
+
+
+
+
+  UserAppInitialize();
+
+
+
+
+  while(1)
+  {
+
+
+
+    UserAppRun();
+
+
+
+                   ;
+    SystemSleep();
+                  ;
+
+  }
 
 }

@@ -27315,13 +27315,23 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
-    u32 u32Counter = (u32)64000000/4/2;
-    _delay(u32Counter);
+    static u32 u32Counter = 0x00000000;
+
 
     if(LATA < 0xBF)
-        LATA += 1;
+    {
+        if(PORTBbits.RB5 == 1)
+    {
+        u32Counter++;
+        u32Counter &= 0x3f;
 
+
+        LATA = 0x00000080 + u32Counter;
+
+    }
     if(LATA >= 0xBF)
+    {
         LATA = 0x80;
-
+    }
+    }
 }

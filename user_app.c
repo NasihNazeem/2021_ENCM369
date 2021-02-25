@@ -94,15 +94,25 @@ Promises:
 */
 void UserAppRun(void)
 {
-    u32 u32Counter = FCY/2;
-    _delay(u32Counter);
+    static u32 u32Counter = 0x00000000;
+    //_delay(u32Counter);
     
-    if(LATA < 0xBF) //This will light up the counting bits, in the correct order by 1.
-        LATA += 1;
-    
-    if(LATA >= 0xBF) //This will reset the count once all 6 LEDs have turned on.
+    if(LATA < 0xBF)
+    { //This will light up the counting bits, in the correct order by 1.
+        if(PORTBbits.RB5 == 1)
+    {
+        u32Counter++;
+        u32Counter &= 0x3f;
+        
+        
+        LATA = 0x00000080 + u32Counter;
+
+    }
+    if(LATA >= 0xBF)
+    { //This will reset the count once all 6 LEDs have turned on.
         LATA = 0x80;
-    
+    }
+    }
 } /* end UserAppRun */
 
 

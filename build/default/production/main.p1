@@ -1,18 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"45585 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
-[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
-[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
-"46163
-[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46163:     struct {
-[s S2169 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2169 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"46162
-[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46162: typedef union {
-[u S2168 `S2169 1 ]
-[n S2168 . . ]
-"46174
-[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46174: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x4CF)));
-[v _PORTBbits `VS2168 ~T0 @X0 0 e@1231 ]
+[p mainexit ]
+"60 ./encm369_pic18.h
+[; ;./encm369_pic18.h: 60: void ClockSetup(void);
+[v _ClockSetup `(v ~T0 @X0 0 ef ]
+"63
+[; ;./encm369_pic18.h: 63: void SysTickSetup(void);
+[v _SysTickSetup `(v ~T0 @X0 0 ef ]
+"61
+[; ;./encm369_pic18.h: 61: void GpioSetup(void);
+[v _GpioSetup `(v ~T0 @X0 0 ef ]
+"27 ./user_app.h
+[; ;./user_app.h: 27: void UserAppInitialize(void);
+[v _UserAppInitialize `(v ~T0 @X0 0 ef ]
+"28
+[; ;./user_app.h: 28: void UserAppRun(void);
+[v _UserAppRun `(v ~T0 @X0 0 ef ]
+"64 ./encm369_pic18.h
+[; ;./encm369_pic18.h: 64: void SystemSleep(void);
+[v _SystemSleep `(v ~T0 @X0 0 ef ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2534,78 +2539,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47642
 [; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 47642: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"33 user_app.c
-[; ;user_app.c: 33: volatile u8 G_u8UserAppFlags;
-[v _G_u8UserAppFlags `Vuc ~T0 @X0 1 e ]
-"76
-[; ;user_app.c: 76: void UserAppInitialize(void)
-[v _UserAppInitialize `(v ~T0 @X0 1 ef ]
-"77
-[; ;user_app.c: 77: {
-{
-[e :U _UserAppInitialize ]
-[f ]
-"80
-[; ;user_app.c: 80: }
-[e :UE 2272 ]
-}
-"95
-[; ;user_app.c: 95: void UserAppRun(void)
-[v _UserAppRun `(v ~T0 @X0 1 ef ]
-"96
-[; ;user_app.c: 96: {
-{
-[e :U _UserAppRun ]
-[f ]
-"97
-[; ;user_app.c: 97:     static u32 u32Counter = 0x00000000;
-[v F15920 `ul ~T0 @X0 1 s u32Counter ]
-[i F15920
+"14 main.c
+[; ;main.c: 14: volatile u32 G_u32SystemTime1ms = 0;
+[v _G_u32SystemTime1ms `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemTime1ms
 -> -> -> 0 `i `l `ul
 ]
-"100
-[; ;user_app.c: 100:     if(LATA < 0xBF)
-[e $ ! < -> _LATA `i -> 191 `i 2274  ]
-"101
-[; ;user_app.c: 101:     {
+"15
+[; ;main.c: 15: volatile u32 G_u32SystemTime1s = 0;
+[v _G_u32SystemTime1s `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemTime1s
+-> -> -> 0 `i `l `ul
+]
+"16
+[; ;main.c: 16: volatile u32 G_u32SystemFlags = 0;
+[v _G_u32SystemFlags `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemFlags
+-> -> -> 0 `i `l `ul
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"35
+[; ;main.c: 35: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"36
+[; ;main.c: 36: {
 {
-"102
-[; ;user_app.c: 102:         if(PORTBbits.RB5 == 1)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2275  ]
-"103
-[; ;user_app.c: 103:     {
-{
-"104
-[; ;user_app.c: 104:         u32Counter++;
-[e ++ F15920 -> -> -> 1 `i `l `ul ]
-"105
-[; ;user_app.c: 105:         u32Counter &= 0x3f;
-[e =& F15920 -> -> -> 63 `i `l `ul ]
-"108
-[; ;user_app.c: 108:         LATA = 0x00000080 + u32Counter;
-[e = _LATA -> + -> -> -> 128 `i `l `ul F15920 `uc ]
-"110
-[; ;user_app.c: 110:     }
-}
-[e :U 2275 ]
-"111
-[; ;user_app.c: 111:     if(LATA >= 0xBF)
-[e $ ! >= -> _LATA `i -> 191 `i 2276  ]
-"112
-[; ;user_app.c: 112:     {
-{
-"113
-[; ;user_app.c: 113:         LATA = 0x80;
-[e = _LATA -> -> 128 `i `uc ]
-"114
-[; ;user_app.c: 114:     }
-}
-[e :U 2276 ]
-"115
-[; ;user_app.c: 115:     }
-}
+[e :U _main ]
+[f ]
+"37
+[; ;main.c: 37:   G_u32SystemFlags |= (u32)0x80000000;
+[e =| _G_u32SystemFlags -> -> 2147483648 `ul `Vul ]
+"40
+[; ;main.c: 40:   ClockSetup();
+[e ( _ClockSetup ..  ]
+"41
+[; ;main.c: 41:   SysTickSetup();
+[e ( _SysTickSetup ..  ]
+"42
+[; ;main.c: 42:   GpioSetup();
+[e ( _GpioSetup ..  ]
+"47
+[; ;main.c: 47:   UserAppInitialize();
+[e ( _UserAppInitialize ..  ]
+"52
+[; ;main.c: 52:   while(1)
 [e :U 2274 ]
-"116
-[; ;user_app.c: 116: }
-[e :UE 2273 ]
+"53
+[; ;main.c: 53:   {
+{
+"57
+[; ;main.c: 57:     UserAppRun();
+[e ( _UserAppRun ..  ]
+"62
+[; ;main.c: 62:     SystemSleep();
+[e ( _SystemSleep ..  ]
+"65
+[; ;main.c: 65:   }
+}
+[e :U 2273 ]
+[e $U 2274  ]
+[e :U 2275 ]
+"67
+[; ;main.c: 67: }
+[e :UE 2272 ]
 }
