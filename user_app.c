@@ -104,7 +104,7 @@ void UserAppRun(void)
             ButtonPress = 0;
         }
         
-        if(PORTBbits.RB5 == 1 && ButtonPress == 0)
+        if((PORTBbits.RB5 == 1) && (ButtonPress == 0))
         {
             ButtonPress = 1;
             u32Counter++;
