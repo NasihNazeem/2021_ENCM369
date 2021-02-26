@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Feb 25 12:07:31 2021
+                                                                                               Thu Feb 25 18:16:56 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	18F27Q43
@@ -254,8 +254,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    220                           	callstack 127
    221  01FF8E                     l72:
    222  01FF8E                     
-   223                           ;user_app.c: 98:     {;user_app.c: 99:     static u32 u32Counter = 0x00000000;;user_app.
-      +                          c: 100:     int ButtonPress;;user_app.c: 102:     if(PORTB == 0x10)
+   223                           ;user_app.c: 98:     {;user_app.c: 99:         static u32 u32Counter = 0x00000000;;user_
+      +                          app.c: 100:         int ButtonPress;;user_app.c: 102:         if(PORTB == 0x10)
    224  01FF8E  0E10               	movlw	16
    225  01FF90  18CF               	xorwf	207,w,c	;volatile
    226  01FF92  A4D8               	btfss	status,2,c
@@ -265,14 +265,14 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    230  01FF9C  EFD4  F0FF         	goto	l764
    231  01FFA0                     u10:
    232  01FFA0                     
-   233                           ;user_app.c: 103:     {;user_app.c: 104:         ButtonPress = 0;
+   233                           ;user_app.c: 103:         {;user_app.c: 104:             ButtonPress = 0;
    234  01FFA0  0E00               	movlw	0
    235  01FFA2  6E13               	movwf	(UserAppRun@ButtonPress+1)^(0+1280),c
    236  01FFA4  0E00               	movlw	0
    237  01FFA6  6E12               	movwf	UserAppRun@ButtonPress^(0+1280),c
    238  01FFA8                     l764:
    239                           
-   240                           ;user_app.c: 106:     if(PORTBbits.RB5 == 1 && ButtonPress == 0)
+   240                           ;user_app.c: 107:         if(PORTBbits.RB5 == 1 && ButtonPress == 0)
    241  01FFA8  AACF               	btfss	207,5,c	;volatile
    242  01FFAA  EFD9  F0FF         	goto	u21
    243  01FFAE  EFDB  F0FF         	goto	u20
@@ -288,13 +288,13 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    253  01FFC4  EFC7  F0FF         	goto	l72
    254  01FFC8                     u30:
    255  01FFC8                     
-   256                           ;user_app.c: 107:     {;user_app.c: 108:         ButtonPress = 1;
+   256                           ;user_app.c: 108:         {;user_app.c: 109:             ButtonPress = 1;
    257  01FFC8  0E00               	movlw	0
    258  01FFCA  6E13               	movwf	(UserAppRun@ButtonPress+1)^(0+1280),c
    259  01FFCC  0E01               	movlw	1
    260  01FFCE  6E12               	movwf	UserAppRun@ButtonPress^(0+1280),c
    261  01FFD0                     
-   262                           ;user_app.c: 109:         u32Counter++;
+   262                           ;user_app.c: 110:             u32Counter++;
    263  01FFD0  0E01               	movlw	1
    264  01FFD2  2601               	addwf	UserAppRun@u32Counter^(0+1280),f,c
    265  01FFD4  0E00               	movlw	0
@@ -302,12 +302,12 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    267  01FFD8  2203               	addwfc	(UserAppRun@u32Counter+2)^(0+1280),f,c
    268  01FFDA  2204               	addwfc	(UserAppRun@u32Counter+3)^(0+1280),f,c
    269  01FFDC                     
-   270                           ;user_app.c: 110:         LATA = 0x80 + u32Counter;
+   270                           ;user_app.c: 111:             LATA = 0x80 + u32Counter;
    271  01FFDC  5001               	movf	UserAppRun@u32Counter^(0+1280),w,c
    272  01FFDE  0F80               	addlw	128
    273  01FFE0  6EBE               	movwf	190,c	;volatile
    274  01FFE2                     
-   275                           ;user_app.c: 112:         if(LATA >= 0xBF)
+   275                           ;user_app.c: 113:             if(LATA >= 0xBF)
    276  01FFE2  0EBE               	movlw	190
    277  01FFE4  64BE               	cpfsgt	190,c	;volatile
    278  01FFE6  EFF7  F0FF         	goto	u41
@@ -316,7 +316,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    281  01FFEE  EFC7  F0FF         	goto	l72
    282  01FFF2                     u40:
    283  01FFF2                     
-   284                           ;user_app.c: 113:             LATA = 0x80;
+   284                           ;user_app.c: 114:                 LATA = 0x80;
    285  01FFF2  0E80               	movlw	128
    286  01FFF4  6EBE               	movwf	190,c	;volatile
    287  01FFF6  EFC7  F0FF         	goto	l72
@@ -533,36 +533,36 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    458  01FF6A                     _GpioSetup:
    459                           	callstack 127
    460  01FF6A                     
-   461                           ;encm369_pic18.c: 91:     PORTA = 0x00000000;
+   461                           ;encm369_pic18.c: 91:     PORTA = 0x00;
    462  01FF6A  0E00               	movlw	0
    463  01FF6C  6ECE               	movwf	206,c	;volatile
    464                           
-   465                           ;encm369_pic18.c: 92:     TRISA = 0x00000000;
+   465                           ;encm369_pic18.c: 92:     TRISA = 0x00;
    466  01FF6E  0E00               	movlw	0
    467  01FF70  6EC6               	movwf	198,c	;volatile
    468                           
-   469                           ;encm369_pic18.c: 93:     ANSELA = 0x00000000;
+   469                           ;encm369_pic18.c: 93:     ANSELA = 0x00;
    470  01FF72  0E00               	movlw	0
    471  01FF74  0104               	movlb	4	; () banked
    472  01FF76  6F00               	movwf	0,b	;volatile
    473                           
-   474                           ;encm369_pic18.c: 94:     LATA = 0x00000080;
+   474                           ;encm369_pic18.c: 94:     LATA = 0x80;
    475  01FF78  0E80               	movlw	128
    476  01FF7A  6EBE               	movwf	190,c	;volatile
    477                           
-   478                           ;encm369_pic18.c: 95:     PORTB = 0x00000000;
+   478                           ;encm369_pic18.c: 95:     PORTB = 0x00;
    479  01FF7C  0E00               	movlw	0
    480  01FF7E  6ECF               	movwf	207,c	;volatile
    481                           
-   482                           ;encm369_pic18.c: 96:     TRISB = 0x00000030;
+   482                           ;encm369_pic18.c: 96:     TRISB = 0x30;
    483  01FF80  0E30               	movlw	48
    484  01FF82  6EC7               	movwf	199,c	;volatile
    485                           
-   486                           ;encm369_pic18.c: 97:     ANSELB = 0x00000000;
+   486                           ;encm369_pic18.c: 97:     ANSELB = 0x00;
    487  01FF84  0E00               	movlw	0
    488  01FF86  6F08               	movwf	8,b	;volatile
    489                           
-   490                           ;encm369_pic18.c: 98:     LATB = 0x00000000;
+   490                           ;encm369_pic18.c: 98:     LATB = 0x00;
    491  01FF88  0E00               	movlw	0
    492  01FF8A  6EBF               	movwf	191,c	;volatile
    493  01FF8C                     
@@ -1166,7 +1166,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Feb 25 12:07:31 2021
+Symbol Table                                                                                   Thu Feb 25 18:16:56 2021
 
      __size_of_SysTickSetup 0022                          l23 FF0E                          l32 FF10  
                         l26 FF8C                          l29 FF46                          l72 FF8E  
