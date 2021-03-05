@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Mar 04 21:32:25 2021
+                                                                                               Thu Mar 04 22:19:47 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	18F27Q43
@@ -370,7 +370,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    335  01FFC0  0E80               	movlw	128
    336  01FFC2  1618               	andwf	UserAppRun@u8TempVar^(0+1280),f,c
    337  01FFC4                     
-   338                           ;user_app.c: 156:         u8TempVar |= au8Pattern[intLedIndex];
+   338                           ;user_app.c: 156:         u8TempVar = 0x00 | au8Pattern[intLedIndex];
    339  01FFC4  0E12               	movlw	low UserAppRun@au8Pattern
    340  01FFC6  240D               	addwf	UserAppRun@intLedIndex^(0+1280),w,c
    341  01FFC8  6ED9               	movwf	fsr2l,c
@@ -378,7 +378,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    343  01FFCC  200E               	addwfc	(UserAppRun@intLedIndex+1)^(0+1280),w,c
    344  01FFCE  6EDA               	movwf	fsr2h,c
    345  01FFD0  50DF               	movf	indf2,w,c
-   346  01FFD2  1218               	iorwf	UserAppRun@u8TempVar^(0+1280),f,c
+   346  01FFD2  6E18               	movwf	UserAppRun@u8TempVar^(0+1280),c
    347  01FFD4                     
    348                           ;user_app.c: 157:         LATA = u8TempVar;
    349  01FFD4  0061  F460  F4BE   	movff	UserAppRun@u8TempVar,1214	;volatile
@@ -1333,7 +1333,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Mar 04 21:32:25 2021
+Symbol Table                                                                                   Thu Mar 04 22:19:47 2021
 
      __size_of_SysTickSetup 0022                          l21 FF0E                          l15 FEA4  
                         l24 FEA6                          l18 FED0                          l90 FFFA  

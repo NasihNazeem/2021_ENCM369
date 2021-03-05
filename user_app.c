@@ -153,7 +153,7 @@ void UserAppRun(void)
         
         
         /*Display Next Pattern*/
-        u8TempVar |= au8Pattern[intLedIndex];
+        u8TempVar = 0x00 | au8Pattern[intLedIndex];
         LATA = u8TempVar;
         intLedIndex++;
         

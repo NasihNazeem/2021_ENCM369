@@ -2653,8 +2653,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;user_app.c: 152:         u8TempVar &= 0x80;
 [e =& _u8TempVar -> -> 128 `i `uc ]
 "156
-[; ;user_app.c: 156:         u8TempVar |= au8Pattern[intLedIndex];
-[e =| _u8TempVar -> *U + &U _au8Pattern * -> -> F15926 `ui `ux -> -> # *U &U _au8Pattern `ui `ux `uc ]
+[; ;user_app.c: 156:         u8TempVar = 0x00 | au8Pattern[intLedIndex];
+[e = _u8TempVar -> | -> 0 `i -> *U + &U _au8Pattern * -> -> F15926 `ui `ux -> -> # *U &U _au8Pattern `ui `ux `i `uc ]
 "157
 [; ;user_app.c: 157:         LATA = u8TempVar;
 [e = _LATA _u8TempVar ]
