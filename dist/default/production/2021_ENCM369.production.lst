@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Mar 04 20:15:28 2021
+                                                                                               Thu Mar 04 20:14:29 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	18F27Q43
@@ -269,7 +269,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    245  01FF68  6E12               	movwf	TimeXus@Input^(0+1280),c
    246  01FF6A  EC6B  F0FF         	call	_TimeXus	;wreg free
    247  01FF6E                     l54:
-   248  01FF6E  AEB1               	btfss	177,7,c	;volatile
+   248  01FF6E  BEB1               	btfsc	177,7,c	;volatile
    249  01FF70  EFBC  F0FF         	goto	u51
    250  01FF74  EFBE  F0FF         	goto	u50
    251  01FF78                     u51:
@@ -1331,7 +1331,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Mar 04 20:15:28 2021
+Symbol Table                                                                                   Thu Mar 04 20:14:29 2021
 
      __size_of_SysTickSetup 0022                          l21 FF12                          l15 FEA8  
                         l24 FEAA                          l18 FED4                          l54 FF6E  

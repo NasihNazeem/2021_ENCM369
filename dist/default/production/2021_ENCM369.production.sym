@@ -276,9 +276,9 @@ idataCOMRAM 1FEAC 1FEB1 CODE 1FEAC 0
 text4 1FEAA 1FEAB CODE 1FEAA 0
 text7 1FEA8 1FEA9 CODE 1FEA8 0
 %locals
-dist/default/debug\2021_ENCM369.debug.o
+dist/default/production\2021_ENCM369.production.o
 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
-C:\Users\NASIHN~1\AppData\Local\Temp\sick.s
+C:\Users\NASIHN~1\AppData\Local\Temp\sf5k.s
 5110 1FF14 0 CODE 0
 5112 1FF14 0 CODE 0
 5115 1FF14 0 CODE 0

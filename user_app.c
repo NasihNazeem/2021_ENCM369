@@ -75,11 +75,48 @@ Promises:
 */
 void UserAppInitialize(void)
 {
-
+    /* LED initialization */
+    LATA = 0x80;
+    
+    /* Timer0 control register initialization to turn timer on, asynchronous mode, 16 bit
+     * Fosc/4, 1:16 pre-scaler, 1:1post-scaler */
+    T0CON0 = 0x90;
+    T0CON1 = 0x54;
 
 } /* end UserAppInitialize() */
 
-  
+/*!----------------------------------------------------------------------------------------------------------------------
+ fn void TimeXus(u16 Input)
+ Timer0 counts to Input
+ 
+ Requires:
+ - Each tick must be configured to 1 us
+ - u16 Input is the value in microseconds timing from 1 us to 65535 us.
+ 
+ Promises:
+ - Pre-load TMR0H:L to clock out period
+ - TMRI0F cleared
+ - Timer0 enabled
+ */
+void TimeXus(u16 Input)
+{
+    //Disable the timer
+    T0CON0 &= 0x7F;
+    
+    
+    u16 Timer = 0xFFFF - Input;
+    
+    /* Pre-loading TMR0L and TMR0H based on Input*/
+    TMR0H = (u8)((Timer & 0xFF00) >> 8); //Shifts the bitmasked values to LSB;
+    TMR0L = (u8)((Timer) & 0x00FF); //Bitmasks the 8 LSB;
+    
+    
+    PIR3 &= 0x7F; //Clears TMRI0F
+    
+    T0CON0 |= 0x80; //Repeats timer by turning on again
+} /* Exit TimeXus */
+
+
 /*!----------------------------------------------------------------------------------------------------------------------
 @fn void UserAppRun(void)
 
@@ -94,14 +131,39 @@ Promises:
 */
 void UserAppRun(void)
 {
-    u32 u32Counter = FCY/2;
-    _delay(u32Counter);
+    static u16 u16Delay = 0x0000;
     
-    if(LATA < 0xBF) //This will light up the counting bits, in the correct order by 1.
-        LATA += 1;
+    /*To access the indices in our Pattern array*/
+    static int intLedIndex = 0;
     
-    if(LATA >= 0xBF) //This will reset the count once all 6 LEDs have turned on.
-        LATA = 0x80;
+    u8 au8Pattern[6] = {0x01,0x02,0x04,0x08,0x10,0x20};
+    
+    /*Counting 1ms every tick*/
+    u16Delay++; 
+    
+    /*One u16Delay reaches 500 (or 0x01F4), pattern moves to next phase*/
+    if(u16Delay == 500)
+    {
+        /*Reset Delay*/
+        u16Delay = 0x0000;
+        u8 u8TempVar = LATA;
+        
+        /*Bit Mask to clear 6 LSB's*/
+        u8TempVar &= 0x80;
+        
+        
+        /*Display Next Pattern*/
+        u8TempVar |= au8Pattern[intLedIndex];
+        LATA = u8TempVar;
+        intLedIndex++;
+        
+        
+        /*Reset Pattern onces Pattern reaches end*/
+        if(intLedIndex == 6)
+        {
+            intLedIndex = 0;
+        }
+    }
     
 } /* end UserAppRun */
 
