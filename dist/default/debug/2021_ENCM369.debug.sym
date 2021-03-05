@@ -82,6 +82,7 @@ __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 1FF3C 0 CODE 0
+TimeXus@u16Timer 514 0 COMRAM 1
 __end_of_UserAppRun 1FFFC 0 CODE 0
 UserAppRun@intLedIndex 50D 0 COMRAM 1
 __Hibigdata 0 0 CODE 0
@@ -138,7 +139,6 @@ ___rparam_used 1 0 ABS 0
 _G_u32SystemTime1s 505 0 COMRAM 1
 _G_u32SystemTime1ms 509 0 COMRAM 1
 __end_of_SysTickSetup 1FF10 0 CODE 0
-TimeXus@Timer 514 0 COMRAM 1
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
 __Hrdata 0 0 COMRAM 1
@@ -278,7 +278,7 @@ text7 1FEA4 1FEA5 CODE 1FEA4 0
 %locals
 dist/default/debug\2021_ENCM369.debug.o
 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
-C:\Users\NASIHN~1\AppData\Local\Temp\seac.s
+C:\Users\NASIHN~1\AppData\Local\Temp\sips.s
 5110 1FF10 0 CODE 0
 5112 1FF10 0 CODE 0
 5115 1FF10 0 CODE 0

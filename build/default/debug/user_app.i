@@ -27326,11 +27326,11 @@ void TimeXus(u16 Input)
     T0CON0 &= 0x7F;
 
 
-    u16 Timer = 0xFFFF - Input;
+    u16 u16Timer = 0xFFFF - Input;
 
 
-    TMR0H = (u8)((Timer & 0xFF00) >> 8);
-    TMR0L = (u8)((Timer) & 0x00FF);
+    TMR0H = (u8)((u16Timer & 0xFF00) >> 8);
+    TMR0L = (u8)((u16Timer) & 0x00FF);
 
 
     PIR3 &= 0x7F;

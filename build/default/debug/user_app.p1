@@ -2579,15 +2579,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;user_app.c: 104:     T0CON0 &= 0x7F;
 [e =& _T0CON0 -> -> 127 `i `Vuc ]
 "107
-[; ;user_app.c: 107:     u16 Timer = 0xFFFF - Input;
-[v _Timer `us ~T0 @X0 1 a ]
-[e = _Timer -> - -> 65535 `ui -> _Input `ui `us ]
+[; ;user_app.c: 107:     u16 u16Timer = 0xFFFF - Input;
+[v _u16Timer `us ~T0 @X0 1 a ]
+[e = _u16Timer -> - -> 65535 `ui -> _Input `ui `us ]
 "110
-[; ;user_app.c: 110:     TMR0H = (u8)((Timer & 0xFF00) >> 8);
-[e = _TMR0H -> >> & -> _Timer `ui -> 65280 `ui -> 8 `i `uc ]
+[; ;user_app.c: 110:     TMR0H = (u8)((u16Timer & 0xFF00) >> 8);
+[e = _TMR0H -> >> & -> _u16Timer `ui -> 65280 `ui -> 8 `i `uc ]
 "111
-[; ;user_app.c: 111:     TMR0L = (u8)((Timer) & 0x00FF);
-[e = _TMR0L -> & -> _Timer `ui -> -> 255 `i `ui `uc ]
+[; ;user_app.c: 111:     TMR0L = (u8)((u16Timer) & 0x00FF);
+[e = _TMR0L -> & -> _u16Timer `ui -> -> 255 `i `ui `uc ]
 "114
 [; ;user_app.c: 114:     PIR3 &= 0x7F;
 [e =& _PIR3 -> -> 127 `i `Vuc ]
