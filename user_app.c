@@ -104,11 +104,11 @@ void TimeXus(u16 Input)
     T0CON0 &= 0x7F;
     
     
-    u16 Timer = 0xFFFF - Input;
+    u16 u16Timer = 0xFFFF - Input;
     
     /* Pre-loading TMR0L and TMR0H based on Input*/
-    TMR0H = (u8)((Timer & 0xFF00) >> 8); //Shifts the bitmasked values to LSB;
-    TMR0L = (u8)((Timer) & 0x00FF); //Bitmasks the 8 LSB;
+    TMR0H = (u8)((u16Timer & 0xFF00) >> 8); //Shifts the bitmasked values to LSB;
+    TMR0L = (u8)((u16Timer) & 0x00FF); //Bitmasks the 8 LSB;
     
     
     PIR3 &= 0x7F; //Clears TMRI0F
