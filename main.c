@@ -54,16 +54,26 @@ void main(void)
     /* Drivers */
        
     /* Applications */
-    UserAppRun();
    
-     
+   
+#if 0
+    TimeXus(2);
+    while((PIR3 != 0x80));
+    DAC1DATL += 4;
+#endif
+    
+#if 1 
+    
+    UserAppRun();
+    
     /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
-    TimeXus(1000);
+    TimeXus(11);
     while((PIR3 != 0x80));
-    HEARTBEAT_ON();
     
+    HEARTBEAT_ON();
+#endif    
   } /* end while(1) main super loop */
   
 } /* end main() */
