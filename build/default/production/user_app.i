@@ -27367,9 +27367,18 @@ void TimeXus(u16 Input)
 # 152 "user_app.c"
 void UserAppRun(void)
 {
-    static u8 u8Index = 0;
+    static _Bool bGoingUp = 1;
 
-    DAC1DATL = UserApp_au8sinTable[u8Index ++];
+    if(DAC1DATL == 255)
+        bGoingUp = 0;
+
+    if(DAC1DATL == 0)
+        bGoingUp = 1;
+
+    if(bGoingUp)
+        DAC1DATL++;
+    else
+        DAC1DATL--;
 
 
 }

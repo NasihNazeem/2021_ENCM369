@@ -101,6 +101,7 @@ void UserAppInitialize(void)
     T0CON0 = 0x90;
     T0CON1 = 0x54;
     
+    /* Initialize DAC1DATL to make sure it starts at 0V */
     DAC1DATL = 0;
 
 } /* end UserAppInitialize() */
@@ -153,6 +154,8 @@ void UserAppRun(void)
 {
     static u8 u8Index = 0;
     
+    
+    /* Create a sinusoid that only uses 64 values on the table*/
     DAC1DATL = UserApp_au8sinTable[u8Index +=4];
     //u8Index += 4;
     

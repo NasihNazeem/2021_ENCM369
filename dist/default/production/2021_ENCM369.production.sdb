@@ -71,8 +71,6 @@
 [v _G_u32SystemFlags G_u32SystemFlags `VEul  1 e 4 0 ]
 "33 H:\Github\NasihNazeem\2021_ENCM369\user_app.c
 [v _G_u8UserAppFlags G_u8UserAppFlags `VEuc  1 e 1 0 ]
-"47
-[v _UserApp_au8sinTable UserApp_au8sinTable `[256]uc  1 s 256 UserApp_au8sinTable ]
 "35 H:\Github\NasihNazeem\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -82,8 +80,8 @@
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
 "154
-[v UserAppRun@u8Index u8Index `uc  1 s 1 u8Index ]
-"159
+[v UserAppRun@bGoingUp bGoingUp `a  1 s 1 bGoingUp ]
+"168
 } 0
 "94
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
