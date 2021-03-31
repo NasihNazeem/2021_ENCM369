@@ -2882,12 +2882,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "156
-[; ;user_app.c: 156:     DAC1DATL = UserApp_au8sinTable[u8Index];
-[e = _DAC1DATL *U + &U _UserApp_au8sinTable * -> F15926 `ux -> -> # *U &U _UserApp_au8sinTable `ui `ux ]
-"157
-[; ;user_app.c: 157:     u8Index += 4;
-[e =+ F15926 -> -> 4 `i `uc ]
-"160
-[; ;user_app.c: 160: }
+[; ;user_app.c: 156:     DAC1DATL = UserApp_au8sinTable[u8Index ++];
+[e = _DAC1DATL *U + &U _UserApp_au8sinTable * -> ++ F15926 -> -> 1 `i `uc `ux -> -> # *U &U _UserApp_au8sinTable `ui `ux ]
+"159
+[; ;user_app.c: 159: }
 [e :UE 2274 ]
 }
