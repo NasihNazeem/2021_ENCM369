@@ -27343,10 +27343,11 @@ void UserAppInitialize(void)
     T0CON0 = 0x90;
     T0CON1 = 0x54;
 
+
     DAC1DATL = 0;
 
 }
-# 121 "user_app.c"
+# 122 "user_app.c"
 void TimeXus(u16 Input)
 {
 
@@ -27364,21 +27365,13 @@ void TimeXus(u16 Input)
 
     T0CON0 |= 0x80;
 }
-# 152 "user_app.c"
+# 153 "user_app.c"
 void UserAppRun(void)
 {
-    static _Bool bGoingUp = 1;
 
-    if(DAC1DATL == 255)
-        bGoingUp = 0;
 
-    if(DAC1DATL == 0)
-        bGoingUp = 1;
 
-    if(bGoingUp)
-        DAC1DATL++;
-    else
-        DAC1DATL--;
+    DAC1DATL++;
 
 
 }

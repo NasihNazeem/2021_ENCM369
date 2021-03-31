@@ -33,16 +33,12 @@
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
 "111
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
-"133
-[v _SystemSleep SystemSleep `(v  1 e 1 0 ]
 "35 H:\Github\NasihNazeem\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 "94 H:\Github\NasihNazeem\2021_ENCM369\user_app.c
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
-"121
+"122
 [v _TimeXus TimeXus `(v  1 e 1 0 ]
-"152
-[v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 "3158 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [v _DAC1DATL DAC1DATL `VEuc  1 e 1 @125 ]
 "3236
@@ -76,33 +72,21 @@
 {
 "79
 } 0
-"152 H:\Github\NasihNazeem\2021_ENCM369\user_app.c
-[v _UserAppRun UserAppRun `(v  1 e 1 0 ]
-{
-"154
-[v UserAppRun@bGoingUp bGoingUp `a  1 s 1 bGoingUp ]
-"168
-} 0
-"94
+"94 H:\Github\NasihNazeem\2021_ENCM369\user_app.c
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
 {
-"106
+"107
 } 0
-"121
+"122
 [v _TimeXus TimeXus `(v  1 e 1 0 ]
 {
-"127
+"128
 [v TimeXus@u16Timer u16Timer `us  1 a 2 2 ]
-"121
+"122
 [v TimeXus@Input Input `us  1 p 2 0 ]
-"137
+"138
 } 0
-"133 H:\Github\NasihNazeem\2021_ENCM369\encm369_pic18.c
-[v _SystemSleep SystemSleep `(v  1 e 1 0 ]
-{
-"136
-} 0
-"111
+"111 H:\Github\NasihNazeem\2021_ENCM369\encm369_pic18.c
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
 {
 "116

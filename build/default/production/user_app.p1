@@ -2824,92 +2824,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "102
 [; ;user_app.c: 102:     T0CON1 = 0x54;
 [e = _T0CON1 -> -> 84 `i `uc ]
-"104
-[; ;user_app.c: 104:     DAC1DATL = 0;
+"105
+[; ;user_app.c: 105:     DAC1DATL = 0;
 [e = _DAC1DATL -> -> 0 `i `uc ]
-"106
-[; ;user_app.c: 106: }
+"107
+[; ;user_app.c: 107: }
 [e :UE 2272 ]
 }
-"121
-[; ;user_app.c: 121: void TimeXus(u16 Input)
-[v _TimeXus `(v ~T0 @X0 1 ef1`us ]
 "122
-[; ;user_app.c: 122: {
+[; ;user_app.c: 122: void TimeXus(u16 Input)
+[v _TimeXus `(v ~T0 @X0 1 ef1`us ]
+"123
+[; ;user_app.c: 123: {
 {
 [e :U _TimeXus ]
-"121
-[; ;user_app.c: 121: void TimeXus(u16 Input)
-[v _Input `us ~T0 @X0 1 r1 ]
 "122
-[; ;user_app.c: 122: {
+[; ;user_app.c: 122: void TimeXus(u16 Input)
+[v _Input `us ~T0 @X0 1 r1 ]
+"123
+[; ;user_app.c: 123: {
 [f ]
-"124
-[; ;user_app.c: 124:     T0CON0 &= 0x7F;
+"125
+[; ;user_app.c: 125:     T0CON0 &= 0x7F;
 [e =& _T0CON0 -> -> 127 `i `Vuc ]
-"127
-[; ;user_app.c: 127:     u16 u16Timer = 0xFFFF - Input;
+"128
+[; ;user_app.c: 128:     u16 u16Timer = 0xFFFF - Input;
 [v _u16Timer `us ~T0 @X0 1 a ]
 [e = _u16Timer -> - -> 65535 `ui -> _Input `ui `us ]
-"130
-[; ;user_app.c: 130:     TMR0H = (u8)((u16Timer & 0xFF00) >> 8);
-[e = _TMR0H -> >> & -> _u16Timer `ui -> 65280 `ui -> 8 `i `uc ]
 "131
-[; ;user_app.c: 131:     TMR0L = (u8)((u16Timer) & 0x00FF);
+[; ;user_app.c: 131:     TMR0H = (u8)((u16Timer & 0xFF00) >> 8);
+[e = _TMR0H -> >> & -> _u16Timer `ui -> 65280 `ui -> 8 `i `uc ]
+"132
+[; ;user_app.c: 132:     TMR0L = (u8)((u16Timer) & 0x00FF);
 [e = _TMR0L -> & -> _u16Timer `ui -> -> 255 `i `ui `uc ]
-"134
-[; ;user_app.c: 134:     PIR3 &= 0x7F;
+"135
+[; ;user_app.c: 135:     PIR3 &= 0x7F;
 [e =& _PIR3 -> -> 127 `i `Vuc ]
-"136
-[; ;user_app.c: 136:     T0CON0 |= 0x80;
-[e =| _T0CON0 -> -> 128 `i `Vuc ]
 "137
-[; ;user_app.c: 137: }
+[; ;user_app.c: 137:     T0CON0 |= 0x80;
+[e =| _T0CON0 -> -> 128 `i `Vuc ]
+"138
+[; ;user_app.c: 138: }
 [e :UE 2273 ]
 }
-"152
-[; ;user_app.c: 152: void UserAppRun(void)
-[v _UserAppRun `(v ~T0 @X0 1 ef ]
 "153
-[; ;user_app.c: 153: {
+[; ;user_app.c: 153: void UserAppRun(void)
+[v _UserAppRun `(v ~T0 @X0 1 ef ]
+"154
+[; ;user_app.c: 154: {
 {
 [e :U _UserAppRun ]
 [f ]
-"154
-[; ;user_app.c: 154:     static _Bool bGoingUp = 1;
-[v F15926 `a ~T0 @X0 1 s bGoingUp ]
-[i F15926
--> -> 1 `i `a
-]
-"156
-[; ;user_app.c: 156:     if(DAC1DATL == 255)
-[e $ ! == -> _DAC1DATL `i -> 255 `i 2275  ]
-"157
-[; ;user_app.c: 157:         bGoingUp = 0;
-[e = F15926 -> -> 0 `i `a ]
-[e :U 2275 ]
-"159
-[; ;user_app.c: 159:     if(DAC1DATL == 0)
-[e $ ! == -> _DAC1DATL `i -> 0 `i 2276  ]
-"160
-[; ;user_app.c: 160:         bGoingUp = 1;
-[e = F15926 -> -> 1 `i `a ]
-[e :U 2276 ]
-"162
-[; ;user_app.c: 162:     if(bGoingUp)
-[e $ ! != -> F15926 `i -> 0 `i 2277  ]
-"163
-[; ;user_app.c: 163:         DAC1DATL++;
+"158
+[; ;user_app.c: 158:     DAC1DATL++;
 [e ++ _DAC1DATL -> -> 1 `i `Vuc ]
-[e $U 2278  ]
-"164
-[; ;user_app.c: 164:     else
-[e :U 2277 ]
-"165
-[; ;user_app.c: 165:         DAC1DATL--;
-[e -- _DAC1DATL -> -> 1 `i `Vuc ]
-[e :U 2278 ]
-"168
-[; ;user_app.c: 168: }
+"161
+[; ;user_app.c: 161: }
 [e :UE 2274 ]
 }

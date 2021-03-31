@@ -55,9 +55,14 @@ void main(void)
        
     /* Applications */
    
-
+   
+#if 1
+    TimeXus(2);
+    while((PIR3 != 0x80));
+    DAC1DATL += 4;
+#endif
     
-#if 1 
+#if 0
     
     UserAppRun();
     

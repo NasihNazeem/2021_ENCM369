@@ -152,11 +152,10 @@ Promises:
 */
 void UserAppRun(void)
 {
-    static u8 u8Index = 0;
+    //static u8 u8Index = 0;
     
     
-    /* Create a sinusoid that only uses 64 values on the table*/
-    DAC1DATL = UserApp_au8sinTable[u8Index +=4];
+    DAC1DATL++;
     //u8Index += 4;
     
 } /* end UserAppRun */
