@@ -154,7 +154,7 @@ void UserAppRun(void)
 {
     static u8 u8Index = 0;
     
-    
+    /*Increments the table by 4 to go through the table and create a sine wave*/
     DAC1DATL = UserApp_au8sinTable[u8Index += 4];
     
     

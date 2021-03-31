@@ -12,15 +12,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27 ./user_app.h
 [; ;./user_app.h: 27: void UserAppInitialize(void);
 [v _UserAppInitialize `(v ~T0 @X0 0 ef ]
-"29
+"28
+[; ;./user_app.h: 28: void UserAppRun(void);
+[v _UserAppRun `(v ~T0 @X0 0 ef ]
+"45585 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
+[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
+"64 ./encm369_pic18.h
+[; ;./encm369_pic18.h: 64: void SystemSleep(void);
+[v _SystemSleep `(v ~T0 @X0 0 ef ]
+"29 ./user_app.h
 [; ;./user_app.h: 29: void TimeXus(u16 Input);
 [v _TimeXus `(v ~T0 @X0 0 ef1`us ]
 "44870 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 44870: extern volatile unsigned char PIR3 __attribute__((address(0x4B1)));
 [v _PIR3 `Vuc ~T0 @X0 0 e@1201 ]
-"3158
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 3158: extern volatile unsigned char DAC1DATL __attribute__((address(0x07D)));
-[v _DAC1DATL `Vuc ~T0 @X0 0 e@125 ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2590,26 +2596,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;main.c: 53:   {
 {
-"60
-[; ;main.c: 60:     TimeXus(2);
-[e ( _TimeXus (1 -> -> 2 `i `us ]
-"61
-[; ;main.c: 61:     while((PIR3 != 0x80));
+"62
+[; ;main.c: 62:     UserAppRun();
+[e ( _UserAppRun ..  ]
+"65
+[; ;main.c: 65:     (LATA &= 0x7F);
+[e =& _LATA -> -> 127 `i `Vuc ]
+"66
+[; ;main.c: 66:     SystemSleep();
+[e ( _SystemSleep ..  ]
+"67
+[; ;main.c: 67:     TimeXus(11);
+[e ( _TimeXus (1 -> -> 11 `i `us ]
+"68
+[; ;main.c: 68:     while((PIR3 != 0x80));
 [e $U 2276  ]
 [e :U 2277 ]
 [e :U 2276 ]
 [e $ != -> _PIR3 `i -> 128 `i 2277  ]
 [e :U 2278 ]
-"62
-[; ;main.c: 62:     DAC1DATL += 4;
-[e =+ _DAC1DATL -> -> 4 `i `Vuc ]
-"77
-[; ;main.c: 77:   }
+"70
+[; ;main.c: 70:     (LATA |= 0x80);
+[e =| _LATA -> -> 128 `i `Vuc ]
+"72
+[; ;main.c: 72:   }
 }
 [e :U 2273 ]
 [e $U 2274  ]
 [e :U 2275 ]
-"79
-[; ;main.c: 79: }
+"74
+[; ;main.c: 74: }
 [e :UE 2272 ]
 }

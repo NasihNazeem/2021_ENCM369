@@ -2875,9 +2875,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _UserAppRun ]
 [f ]
+"155
+[; ;user_app.c: 155:     static u8 u8Index = 0;
+[v F15926 `uc ~T0 @X0 1 s u8Index ]
+[i F15926
+-> -> 0 `i `uc
+]
 "158
-[; ;user_app.c: 158:     DAC1DATL++;
-[e ++ _DAC1DATL -> -> 1 `i `Vuc ]
+[; ;user_app.c: 158:     DAC1DATL = UserApp_au8sinTable[u8Index += 4];
+[e = _DAC1DATL *U + &U _UserApp_au8sinTable * -> =+ F15926 -> -> 4 `i `uc `ux -> -> # *U &U _UserApp_au8sinTable `ui `ux ]
 "161
 [; ;user_app.c: 161: }
 [e :UE 2274 ]

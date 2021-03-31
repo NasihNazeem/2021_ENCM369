@@ -27368,10 +27368,10 @@ void TimeXus(u16 Input)
 # 153 "user_app.c"
 void UserAppRun(void)
 {
+    static u8 u8Index = 0;
 
 
-
-    DAC1DATL++;
+    DAC1DATL = UserApp_au8sinTable[u8Index += 4];
 
 
 }
