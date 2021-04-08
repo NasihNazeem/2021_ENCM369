@@ -67,7 +67,6 @@ Global variable definitions with scope limited to this local application.
 Variable names shall start with "UserApp_<type>" and be declared as static.
 ***********************************************************************************************************************/
 
-
 /**********************************************************************************************************************
 Function Definitions
 **********************************************************************************************************************/
@@ -218,7 +217,7 @@ void UserAppInitialize(void)
     T1CON  = 0x31;  // b'00110001'
     
     // Test call to set frequency
- 
+ InterruptTimerXus(16, true);
     
 } /* end UserAppInitialize() */
 
@@ -237,7 +236,33 @@ Promises:
 */
 void UserAppRun(void)
 {
+    static u8 u8ArrayCounter = 0;
+    static u16 u16duration = 0;
+    static bool nextNote = false;
 
+    if(u8ArrayCounter >= sizeof(u16MusicNotes)/sizeof(u16MusicNotes[0]))
+    {
+        InterruptTimerXus(NN, true);
+        u8ArrayCounter = 0;
+        u16duration = 5000;
+    }
+
+    if(u16duration == 0 && nextNote == false)
+    {
+        InterruptTimerXus(NN, true);
+        u16duration = REGULAR_NOTE_ADJUSTMENT;
+        nextNote = true;
+    }
+
+    u16duration -= 1;
+
+    if(u16duration == 0 && nextNote == true)
+    {
+        InterruptTimerXus(u16MusicNotes[u8ArrayCounter], true);
+        u16duration = u16NoteLength[u8ArrayCounter];
+        u8ArrayCounter += 1;
+        nextNote = false;
+    }
   
 } /* end UserAppRun() */
 

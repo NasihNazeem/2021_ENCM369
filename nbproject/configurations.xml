@@ -209,7 +209,7 @@
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="true"/>
         <property key="programmerToGoFilePath"
-                  value="D:/_git/UofCencm369/2021_ENCM369/debug/default/PIC_Activity3_ptg"/>
+                  value="H:/Github/NasihNazeem/2021_ENCM369/debug/default/PIC_Activity3_ptg"/>
         <property key="programmerToGoImageName" value="PIC_Activity3_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
