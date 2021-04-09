@@ -273,7 +273,7 @@ void UserAppRun(void)
     {
         InterruptTimerXus(G_au16MusicNotes[u8ArrayCounter], true);
         u16duration = G_au16NoteLength[u8ArrayCounter];
-        u8ArrayCounter ++;;
+        u8ArrayCounter ++;
         nextNote = false;
     }
   
