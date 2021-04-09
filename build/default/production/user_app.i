@@ -27394,28 +27394,25 @@ extern volatile u32 G_u32SystemFlags;
 
 
 
-u16 u16MusicNotes [] =
+
+u16 G_au16MusicNotes [] =
     {
-        (u16)(u16)60, (u16)(u16)60, (u16)(u16)40, (u16)(u16)40, (u16)(u16)36, (u16)(u16)36, (u16)(u16)40, (u16)(u16)0,
-        (u16)(u16)45, (u16)(u16)45, (u16)(u16)47, (u16)(u16)47, (u16)(u16)53, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0,
-        (u16)(u16)40, (u16)(u16)40, (u16)(u16)45, (u16)(u16)45, (u16)(u16)47, (u16)(u16)47, (u16)(u16)53, (u16)(u16)0,
-        (u16)(u16)60, (u16)(u16)60, (u16)(u16)40, (u16)(u16)40, (u16)(u16)36, (u16)(u16)36, (u16)(u16)40, (u16)(u16)0,
-        (u16)(u16)45, (u16)(u16)45, (u16)(u16)47, (u16)(u16)47, (u16)(u16)53, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0
+        (u16)(u16)47, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0, (u16)(u16)47, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0,
+        (u16)(u16)60, (u16)(u16)60, (u16)(u16)60, (u16)(u16)60, (u16)(u16)53, (u16)(u16)53, (u16)(u16)53, (u16)(u16)53, (u16)(u16)0,
+        (u16)(u16)47, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0
     };
 
-    u16 u16NoteLength [] =
+    u16 G_au16NoteLength [] =
     {
-        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0,
-        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0,
-        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0,
-        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0,
-        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0
+        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)(u16)0,
+        (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)((u16)2048 / 8), (u16)(u16)0,
+        (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)(u16)0
     };
-# 109 "user_app.c"
+# 106 "user_app.c"
 void TimeXus(u16 u16TimeXus_)
 {
   u16 u16Temp = 65535;
-# 123 "user_app.c"
+# 120 "user_app.c"
   T0CON0bits.EN = 0;
 
 
@@ -27428,7 +27425,7 @@ void TimeXus(u16 u16TimeXus_)
   T0CON0bits.EN = 1;
 
 }
-# 162 "user_app.c"
+# 159 "user_app.c"
 void InterruptTimerXus(u16 u16TimeXus_, _Bool bContinuous_)
 {
   u16 u16Temp;
@@ -27465,7 +27462,7 @@ void InterruptTimerXus(u16 u16TimeXus_, _Bool bContinuous_)
   T1CONbits.ON = 1;
 
 }
-# 219 "user_app.c"
+# 216 "user_app.c"
 void UserAppInitialize(void)
 {
 
@@ -27486,14 +27483,14 @@ void UserAppInitialize(void)
  InterruptTimerXus(16, 1);
 
 }
-# 253 "user_app.c"
+# 250 "user_app.c"
 void UserAppRun(void)
 {
     static u8 u8ArrayCounter = 0;
     static u16 u16duration = 0;
     static _Bool nextNote = 0;
 
-    if(u8ArrayCounter >= sizeof(u16MusicNotes)/sizeof(u16MusicNotes[0]))
+    if(u8ArrayCounter >= sizeof(G_au16MusicNotes)/sizeof(G_au16MusicNotes[0]))
     {
         InterruptTimerXus((u16)(u16)0, 1);
         u8ArrayCounter = 0;
@@ -27507,13 +27504,13 @@ void UserAppRun(void)
         nextNote = 1;
     }
 
-    u16duration -= 1;
+    u16duration --;
 
     if(u16duration == 0 && nextNote == 1)
     {
-        InterruptTimerXus(u16MusicNotes[u8ArrayCounter], 1);
-        u16duration = u16NoteLength[u8ArrayCounter];
-        u8ArrayCounter += 1;
+        InterruptTimerXus(G_au16MusicNotes[u8ArrayCounter], 1);
+        u16duration = G_au16NoteLength[u8ArrayCounter];
+        u8ArrayCounter ++;;
         nextNote = 0;
     }
 

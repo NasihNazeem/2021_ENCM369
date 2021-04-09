@@ -67,6 +67,19 @@ Global variable definitions with scope limited to this local application.
 Variable names shall start with "UserApp_<type>" and be declared as static.
 ***********************************************************************************************************************/
 
+u16 G_au16MusicNotes [] = 
+    {
+        E4, D4, C4, NN, E4, D4, C4, NN,
+        C4, C4, C4, C4, D4, D4, D4, D4, NN,
+        E4, D4, C4, NN
+    };
+
+    u16 G_au16NoteLength [] = 
+    {
+        N4, N4, N4, N4, N4, N4, N4, NN,
+        N8, N8, N8, N8, N8, N8, N8, N8, NN,
+        N4, N4, N4, N2, NN
+    };
 /**********************************************************************************************************************
 Function Definitions
 **********************************************************************************************************************/
@@ -240,13 +253,13 @@ void UserAppRun(void)
     static u16 u16duration = 0;
     static bool nextNote = false;
 
-    if(u8ArrayCounter >= sizeof(u16MusicNotes)/sizeof(u16MusicNotes[0]))
+    if(u8ArrayCounter >= sizeof(G_au16MusicNotes)/sizeof(G_au16MusicNotes[0]))
     {
         InterruptTimerXus(NN, true);
         u8ArrayCounter = 0;
         u16duration = 5000;
     }
-
+    //Reset
     if(u16duration == 0 && nextNote == false)
     {
         InterruptTimerXus(NN, true);
@@ -254,13 +267,13 @@ void UserAppRun(void)
         nextNote = true;
     }
 
-    u16duration -= 1;
-
+    u16duration --;
+    //Play next note
     if(u16duration == 0 && nextNote == true)
     {
-        InterruptTimerXus(u16MusicNotes[u8ArrayCounter], true);
-        u16duration = u16NoteLength[u8ArrayCounter];
-        u8ArrayCounter += 1;
+        InterruptTimerXus(G_au16MusicNotes[u8ArrayCounter], true);
+        u16duration = G_au16NoteLength[u8ArrayCounter];
+        u8ArrayCounter ++;;
         nextNote = false;
     }
   
